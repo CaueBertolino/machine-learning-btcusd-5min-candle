@@ -1,55 +1,23 @@
-#Linear Regression 
-CREATE OR REPLACE MODEL `cryptocurrency-predictor.BYBIT_BTCUSD_5MIN.bybit_btcusd_5min_model`
+#Create Model
+CREATE OR REPLACE MODEL BYBIT_BTCUSD_5MIN.btcusd_bittrex_arima_model
 OPTIONS
-  (model_type='linear_reg',
-    input_label_cols=['average']) AS
+  (model_type = 'ARIMA_PLUS',
+   time_series_timestamp_col = 'Timestamp',
+   time_series_data_col = 'Close',
+   auto_arima = TRUE,
+   data_frequency = 'AUTO_FREQUENCY',
+   decompose_time_series = TRUE
+  ) AS
 SELECT
-  datetime,
-  open,
-  high,
-  low,
-  close,
-  average
+  Timestamp, Close
 FROM
-  `cryptocurrency-predictor.BYBIT_BTCUSD_5MIN.bybit_btcusd_5min`;
+  `cryptocurrency-predictor.BYBIT_BTCUSD_5MIN.btcusd_bittrex_5min_candle`
+GROUP BY Timestamp, Close;
 
-
-#evaluate
+#Forecast & insert into table 
+INSERT INTO `cryptocurrency-predictor.BYBIT_BTCUSD_5MIN.btcusd_arima_bittrex_5min_forecast_results_2`
 SELECT
-  *
+ *
 FROM
-  ML.EVALUATE(MODEL `cryptocurrency-predictor.BYBIT_BTCUSD_5MIN.bybit_btcusd_5min_model`,(
-  SELECT
-  datetime,
-  open,
-  high,
-  low,
-  close,
-  average
-FROM
-  `cryptocurrency-predictor.BYBIT_BTCUSD_5MIN.bybit_btcusd_5min`));
-
-
-# predict
-SELECT
-  predicted_average
-FROM
-  ML.PREDICT(MODEL `cryptocurrency-predictor.BYBIT_BTCUSD_5MIN.bybit_btcusd_5min_model`,(
-  SELECT
-  datetime,
-  open,
-  high,
-  low,
-  close,
-  average
-FROM
-  `cryptocurrency-predictor.BYBIT_BTCUSD_5MIN.bybit_btcusd_5min` ));
-
-
-#predict 2
-
-SELECT datetime, predicted_average FROM ML.PREDICT(MODEL `cryptocurrency-predictor.BYBIT_BTCUSD_5MIN.bybit_btcusd_5min_model`, (
-    SELECT datetime, open, low, high, close, average FROM `cryptocurrency-predictor.BYBIT_BTCUSD_5MIN.bybit_btcusd_5min`
-    WHERE datetime BETWEEN '2021-03-10' AND  '2021-03-10 23:59:59'
-    ORDER BY datetime DESC
-));
+ ML.FORECAST(MODEL BYBIT_BTCUSD_5MIN.btcusd_bittrex_arima_model,
+             STRUCT(288 AS horizon, 0.9 AS confidence_level))
