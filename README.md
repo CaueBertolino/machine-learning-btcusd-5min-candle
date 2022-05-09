@@ -25,3 +25,17 @@ Links:
 Sheet: https://docs.google.com/spreadsheets/d/1QdKzEuw1En95a00sZ14PrL3ZtrX4akHv02HSXLhVB-0/edit#gid=0
 
 Dashboard: https://datastudio.google.com/reporting/137eeb38-e1ca-4a93-91b4-22a888ef4b14/page/p_dfyxv1z8nc
+
+
+
+---------------------------------------------------------------------------------------------------------
+Updates: 09-05-2022
+
+Something changed in the Big Query's ARIMA model on the 28th of March of 2022. You will be able to check it by yourself in this very same dashboard.
+I suggest selecting the range: 2022-03-26 to 2022-03-31. The change, as you can see, happened on the 28th.
+
+I failed to find the answer in any of <a href="https://cloud.google.com/support/docs/community"> Google's documentation.</a>
+
+I posted a question on <a href="https://stackoverflow.com/questions/72177282/bigquery-arima-model-what-changed"> Stackoverflow </a> and another one in the <a href="https://www.googlecloudcommunity.com/gc/AI-ML/BigQuery-ARIMA-Model-What-changed/m-p/421507#M318"> GCP Community </a>
+
+
