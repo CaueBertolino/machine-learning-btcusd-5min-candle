@@ -8,9 +8,14 @@ The idea to use 5 minutes candles was to understand what would be the results us
 
 The sheet was then imported into <a href="https://cloud.google.com/bigquery" target="_blank"> Big Query</a> as a table using the native integration the Google products offers. Any updates to the sheet reflects immediatelly in Big Query.
 
-I wrote a simple <a href="https://cloud.google.com/bigquery-ml/docs/arima-single-time-series-forecasting-tutorial" target="_blank">Arima model available in Big Query GCP</a> using SQL to run every day at 11am Ireland's time, including the last day's (yesterday) data into the model to predict the next 288 "5 mins close values" (the number of 5 minutes in 24h). The code then returns the predicted close values for the current day. This model takes about (at the time of this project implementation) 45 minutes to run. 
+I wrote a simple <a href="https://cloud.google.com/bigquery-ml/docs/arima-single-time-series-forecasting-tutorial" target="_blank">Arima model available in Big Query GCP</a> using SQL to run every day at 11am Ireland's time, including the last day's (yesterday) data into the model to predict the next 288 "5 mins close values" (the number of 5 minutes in 24h). The code then returns the predicted close values for the current day. 
 
-The results for the prediction can be found on this <a href="https://datastudio.google.com/reporting/137eeb38-e1ca-4a93-91b4-22a888ef4b14/page/p_dfyxv1z8nc" target="_blank">Dashboard</a>. The dashboard plots the results predicted and also plots a comparison of predicted data vs actual data.
+I have also written and scheduled another query to use the PaLM 2 (Bison) model to answer the following questions (using the real results and forecasted tables as data sources):
+- What is the best option to buy or sell bitcoin?
+- What is the accuracy of the model?
+- What is the acurracy of the model to predict trends?
+
+I then created a simple <a href= "https://lookerstudio.google.com/u/0/navigation/reporting" target="_blank">Looker Studio</a> dashboard to include the results for the prediction and the analysis for the Language Model. The results can be found on this <a href="https://datastudio.google.com/reporting/137eeb38-e1ca-4a93-91b4-22a888ef4b14/page/p_dfyxv1z8nc" target="_blank">Dashboard</a>.
 
 Improvements to be made:
 - Change the API to one that offers different time frames for the candles and data more frequently updated. The Bittrex API (at the time of this project implementation) presented some bugs for fetching some time ranges or more recent data.
@@ -29,13 +34,7 @@ Dashboard: https://datastudio.google.com/reporting/137eeb38-e1ca-4a93-91b4-22a88
 
 
 ---------------------------------------------------------------------------------------------------------
-Updates: 09-05-2022
-
-Something changed in the Big Query's ARIMA model on the 28th of March of 2022. You will be able to check it by yourself in this very same dashboard.
-I suggest selecting the range: 2022-03-26 to 2022-03-31. The change, as you can see, happened on the 28th.
-
-I failed to find the answer in any of <a href="https://cloud.google.com/support/docs/community"> Google's documentation.</a>
-
-I posted a question on <a href="https://stackoverflow.com/questions/72177282/bigquery-arima-model-what-changed"> Stackoverflow </a> and another one in the <a href="https://www.googlecloudcommunity.com/gc/AI-ML/BigQuery-ARIMA-Model-What-changed/m-p/421507#M318"> GCP Community </a>
+Updates: 13/05/2023
+<a href="https://blog.google/technology/ai/google-palm-2-ai-large-language-model/">PaLM 2 </a> model is now available in Big Query in the Bison Version. I have included 
 
 
