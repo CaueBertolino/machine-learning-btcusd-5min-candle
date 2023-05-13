@@ -13,7 +13,7 @@ I wrote a simple <a href="https://cloud.google.com/bigquery-ml/docs/arima-single
 I have also written and scheduled another query to use the PaLM 2 (Bison) model to answer the following questions (using the real results and forecasted tables as data sources):
 - What is the best option to buy or sell bitcoin?
 - What is the accuracy of the model?
-- What is the acurracy of the model to predict trends?
+- What is the accuracy of the model to predict trends?
 
 I then created a simple <a href= "https://lookerstudio.google.com/u/0/navigation/reporting" target="_blank">Looker Studio</a> dashboard to include the results for the prediction and the analysis for the Language Model. The results can be found on this <a href="https://datastudio.google.com/reporting/137eeb38-e1ca-4a93-91b4-22a888ef4b14/page/p_dfyxv1z8nc" target="_blank">Dashboard</a>.
 
@@ -35,6 +35,6 @@ Dashboard: https://datastudio.google.com/reporting/137eeb38-e1ca-4a93-91b4-22a88
 
 ---------------------------------------------------------------------------------------------------------
 Updates: 13/05/2023
-<a href="https://blog.google/technology/ai/google-palm-2-ai-large-language-model/">PaLM 2 </a> model is now available in Big Query in the Bison Version. I have included 
+<a href="https://blog.google/technology/ai/google-palm-2-ai-large-language-model/">PaLM 2 </a> model is now available in Big Query in the Bison Version. PRoject updated to benefit from this model too.
 
 
