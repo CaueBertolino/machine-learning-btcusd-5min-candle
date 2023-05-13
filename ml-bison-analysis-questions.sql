@@ -1,5 +1,5 @@
 UPDATE `cryptocurrency-predictor.BYBIT_BTCUSD_5MIN.btc_results_analysis_bison` 
-SET answer_one = answer_one 
+SET answer_one = answer
 FROM (
   select bigfunctions.eu.ask_bison(
     '''
@@ -10,12 +10,12 @@ FROM (
     Columns: forecast_timestamp, forcast_value, standard_error, confidence_level, prediction_interval_lower_bound, prediction_interval_upper_bound,  confidence_interval_lower_bound, confidence_interval_upper_bound, timestamp
     Answer: formatted as text
     '''
-    ) as answer_one
+    ) as answer
 
 ) WHERE 1 = 1;
 
 UPDATE `cryptocurrency-predictor.BYBIT_BTCUSD_5MIN.btc_results_analysis_bison` 
-SET answer_two = answer_two 
+SET answer_two = answer
 FROM (
   select bigfunctions.eu.ask_bison(
     '''
@@ -26,12 +26,12 @@ FROM (
     Columns: forecast_timestamp, forcast_value, standard_error, confidence_level, prediction_interval_lower_bound, prediction_interval_upper_bound,  confidence_interval_lower_bound, confidence_interval_upper_bound, timestamp
     Answer: formatted as text
     '''
-    ) as answer_two
+    ) as answer
 
 ) WHERE 1 = 1;
 
 UPDATE `cryptocurrency-predictor.BYBIT_BTCUSD_5MIN.btc_results_analysis_bison` 
-SET answer_three = answer_three 
+SET answer_three = answer
 FROM (
   select bigfunctions.eu.ask_bison(
     '''
@@ -42,6 +42,6 @@ FROM (
     Columns: forecast_timestamp, forcast_value, standard_error, confidence_level, prediction_interval_lower_bound, prediction_interval_upper_bound,  confidence_interval_lower_bound, confidence_interval_upper_bound, timestamp
     Answer: formatted as text
     '''
-    ) as answer_three
+    ) as answer
 
 ) WHERE 1 = 1;
