@@ -10,7 +10,7 @@ FROM (
     Columns: forecast_timestamp, forcast_value, standard_error, confidence_level, prediction_interval_lower_bound, prediction_interval_upper_bound,  confidence_interval_lower_bound, confidence_interval_upper_bound, timestamp
     Answer: formatted as text
     '''
-    ) as answer
+    ) as answer_one
 
 ) WHERE 1 = 1;
 
@@ -26,7 +26,7 @@ FROM (
     Columns: forecast_timestamp, forcast_value, standard_error, confidence_level, prediction_interval_lower_bound, prediction_interval_upper_bound,  confidence_interval_lower_bound, confidence_interval_upper_bound, timestamp
     Answer: formatted as text
     '''
-    ) as answer
+    ) as answer_two
 
 ) WHERE 1 = 1;
 
@@ -42,6 +42,6 @@ FROM (
     Columns: forecast_timestamp, forcast_value, standard_error, confidence_level, prediction_interval_lower_bound, prediction_interval_upper_bound,  confidence_interval_lower_bound, confidence_interval_upper_bound, timestamp
     Answer: formatted as text
     '''
-    ) as answer
+    ) as answer_three
 
 ) WHERE 1 = 1;
