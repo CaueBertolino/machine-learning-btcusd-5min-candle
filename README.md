@@ -17,7 +17,7 @@ I am also using <a href="https://github.com/unytics/bigfunctions">BigFunctions</
 
 I then created a simple <a href= "https://lookerstudio.google.com/u/0/navigation/reporting" target="_blank">Looker Studio</a> dashboard to include the results for the prediction and the answers from the Large Language Model. The results can be found on this <a href="https://datastudio.google.com/reporting/137eeb38-e1ca-4a93-91b4-22a888ef4b14/page/p_dfyxv1z8nc" target="_blank">Dashboard</a>.
 
-This ia an open source project, fell free to contribute.
+This is an open source project, fell free to contribute.
 
 Links:
 
